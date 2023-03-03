@@ -1,0 +1,9 @@
+Package: com.hackcatml.kittymemstatic
+Name: kittymemstatic
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome library of some sort!!
+Maintainer: hackcatml
+Author: hackcatml
+Section: System
+Tag: role::developer
