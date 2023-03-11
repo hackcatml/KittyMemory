@@ -78,6 +78,8 @@ typedef struct MemoryFileInfo {
 
 + (uintptr_t)readPtr:(void *)ptr;
 
++ (uint32_t)readU32:(void *)ptr;
+
 + (BOOL)writePtr:(void *)ptr withValue:(id)value;
 
 @end

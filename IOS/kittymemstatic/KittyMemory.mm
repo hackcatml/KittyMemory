@@ -211,6 +211,15 @@ kern_return_t getPageInfo(void *page_start, vm_region_submap_short_info_64 *outI
     return *(typeof(defaultVal) *)ptr;
 }
 
++ (uint32_t)readU32:(void *)ptr
+{
+    uint32_t defaultVal = 0;
+    if (ptr == NULL)
+        return defaultVal;
+    
+    return *(typeof(defaultVal) *)ptr;
+}
+
 + (BOOL)writePtr:(void *)ptr withValue:(id)value
 {
     if (ptr == NULL)
