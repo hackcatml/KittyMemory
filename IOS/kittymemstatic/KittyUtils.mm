@@ -9,20 +9,20 @@
     
     NSMutableString *mutableStr = [*str mutableCopy];
     NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    [mutableStr stringByTrimmingCharactersInSet:whitespace];
+    mutableStr = [[mutableStr stringByTrimmingCharactersInSet:whitespace] stringByReplacingOccurrencesOfString:@" " withString:@""].mutableCopy;
     *str = [mutableStr copy];
 }
 
-+ (BOOL)validateHexString:(NSString *)hex {
-    if (hex.length == 0) {
++ (BOOL)validateHexString:(NSString **)hex {
+    if ([*hex length] == 0) {
         return NO;
     }
     
-    if ([hex hasPrefix:@"0x"]) {
-        hex = [hex substringFromIndex:2];
+    if ([*hex hasPrefix:@"0x"]) {
+        *hex = [*hex substringFromIndex:2];
     }
     
-    NSString *trimmedHex = hex; // create a temporary NSString variable
+    NSString *trimmedHex = *hex; // create a temporary NSString variable
     [self trimString:&trimmedHex]; // pass a pointer to the temporary variable
     
     if (trimmedHex.length < 2 || trimmedHex.length % 2 != 0) {
@@ -34,7 +34,7 @@
             return NO;
         }
     }
-    
+    *hex = trimmedHex;
     return YES;
 }
 

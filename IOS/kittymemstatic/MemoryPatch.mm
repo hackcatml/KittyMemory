@@ -59,7 +59,7 @@
 + (instancetype)createWithHexWithFileName:(const char *)fileName address:(uintptr_t)address hex:(NSString *)hex {
     MemoryPatch *patch = [[MemoryPatch alloc] init];
     
-    if (address == 0 || ![KittyUtils validateHexString:hex]) {
+    if (address == 0 || ![KittyUtils validateHexString:&hex]) {
         return patch;
     }
     
@@ -85,7 +85,7 @@
 + (instancetype)createWithHex:(uintptr_t)absolute_address hex:(NSString *)hex {
     MemoryPatch *patch = [[MemoryPatch alloc] init];
     
-    if (absolute_address == 0 || ![KittyUtils validateHexString:hex]) {
+    if (absolute_address == 0 || ![KittyUtils validateHexString:&hex]) {
         return patch;
     }
     
