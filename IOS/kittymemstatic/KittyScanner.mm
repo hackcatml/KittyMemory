@@ -13,7 +13,7 @@
     return !*mask;
 }
 
-+ (uintptr_t)findInRange:(uintptr_t)start end:(size_t)end pattern:(const char *)pattern mask:(const char *)mask {
++ (uintptr_t)findInRange:(uintptr_t)start end:(uintptr_t)end pattern:(const char *)pattern mask:(const char *)mask {
     const size_t scan_size = strlen(mask);
 
     if ((start + scan_size) > end) {
